@@ -1,0 +1,109 @@
+$lengthColor: #0ec098;
+$lengthBgColor: #edfdf9;
+$temperatureColor : #fd5160;
+$temperatureBgColor: #ffeef0;
+$volumeColor: #7224ff;
+$volumeBgColor: #e8ddff;
+
+.sub-division {
+  margin-left: 26%;
+  margin-top: 5%;
+}
+
+.type-name-text {
+  font-size: 17px;
+  font-family: Montserrat, Medium;
+}
+
+.card-division {
+  width: 50%;
+}
+
+#length {
+  margin-top: 11%;
+  margin-left: 46%;
+  width: 12px;
+  height: 46px;
+}
+
+#length:hover {
+  background-color: $lengthColor;
+}
+
+#temperature {
+  margin-top: 11%;
+  margin-left: 40%;
+  width: 30px;
+  height: 57px;
+}
+
+#volume {
+  margin-top: 11%;
+  margin-left: 37%;
+  width: 46px;
+  height: 48px;
+}
+
+.card {
+  width: 170px;
+  height: 127px;
+  color: gray;
+  border-radius: 5%;
+  border: 1px solid grey;
+
+  .card-length:hover {
+    background-color: $lengthBgColor;
+    cursor: pointer;
+    border: 1px solid $lengthColor;
+  }
+
+  .card-temperature:hover {
+    background-color: $temperatureBgColor;
+    cursor: pointer;
+    border: 1px solid $temperatureColor;
+  }
+
+  .card-volume:hover {
+    background-color: $volumeBgColor;
+    cursor: pointer;
+    border: 1px solid $volumeColor;
+  }
+}
+
+.card-hold-length {
+  width: 170px;
+  height: 127px;
+  border-radius: 5%;
+  border: 1px solid $lengthColor;
+  background-color: $lengthBgColor;
+  color: $lengthColor;
+  cursor: pointer;
+}
+
+.card-hold-temperature {
+  width: 170px;
+  height: 127px;
+  border-radius: 5%;
+  border: 1px solid $temperatureColor;
+  background-color: $temperatureBgColor;
+  color: $temperatureColor;
+  cursor: pointer;
+}
+
+.card-hold-volume {
+  width: 170px;
+  height: 127px;
+  border-radius: 5%;
+  border: 1px solid $volumeColor;
+  background-color: $volumeBgColor;
+  color: $volumeColor;
+  cursor: pointer;
+}
+
+mat-card-content p {
+  display: flex;
+  justify-content: center;
+  font-size: 22px;
+  margin-top: 8%;
+  font: normal normal bold 15px/19px Montserrat;
+}
