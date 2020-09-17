@@ -9,6 +9,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppHeaderComponent } from './components/app-header/app-header.component';
 import { UnitTypeComponent } from './components/unit-type/unit-type.component';
 import { UnitConvertorComponent } from './components/unit-convertor/unit-convertor.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { UnitConvertorComponent } from './components/unit-convertor/unit-convert
     AppHeaderComponent,
     UnitTypeComponent,
     UnitConvertorComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
