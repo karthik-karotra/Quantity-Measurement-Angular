@@ -8,12 +8,14 @@ import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppHeaderComponent } from './components/app-header/app-header.component';
 import { UnitTypeComponent } from './components/unit-type/unit-type.component';
+import { UnitConvertorComponent } from './components/unit-convertor/unit-convertor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppHeaderComponent,
     UnitTypeComponent,
+    UnitConvertorComponent,
   ],
   imports: [
     BrowserModule,
