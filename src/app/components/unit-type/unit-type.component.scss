@@ -49,25 +49,25 @@ $volumeBgColor: #e8ddff;
   height: 127px;
   color: gray;
   border-radius: 5%;
-  border: 1px solid grey;
+  border: 1px solid grey; 
+}
 
-  .card-length:hover {
-    background-color: $lengthBgColor;
-    cursor: pointer;
-    border: 1px solid $lengthColor;
-  }
+.card-length:hover {
+  background-color: $lengthBgColor;
+  cursor: pointer;
+  border: 1px solid $lengthColor;
+}
 
-  .card-temperature:hover {
-    background-color: $temperatureBgColor;
-    cursor: pointer;
-    border: 1px solid $temperatureColor;
-  }
+.card-temperature:hover {
+  background-color: $temperatureBgColor;
+  cursor: pointer;
+  border: 1px solid $temperatureColor;
+}
 
-  .card-volume:hover {
-    background-color: $volumeBgColor;
-    cursor: pointer;
-    border: 1px solid $volumeColor;
-  }
+.card-volume:hover {
+  background-color: $volumeBgColor;
+  cursor: pointer;
+  border: 1px solid $volumeColor;
 }
 
 .card-hold-length {
