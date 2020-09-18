@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-unit-convertor',
@@ -8,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class UnitConvertorComponent implements OnInit {
 
   constructor() { }
+
+  @Input() subUnits: any[];
+  @Input() firstInput: number;
+  @Input() secondInput: number;
 
   ngOnInit(): void {
   }

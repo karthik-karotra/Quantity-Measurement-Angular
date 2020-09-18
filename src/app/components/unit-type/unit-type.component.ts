@@ -15,8 +15,23 @@ export class UnitTypeComponent implements OnInit {
   onTemperature: boolean = false;
   volume: string = 'card card-volume';
   onVolume: boolean = false;
+  subUnits = [];
+  firstInput: number = 0;
+  secondInput: number = 0;
 
-  constructor() { 
+  constructor() {
+    this.changeLength = true;
+    this.temperature = 'card card-temperature';
+    this.volume = 'card card-volume';
+    this.length = 'card-hold-length';
+    this.onLength = true;
+    this.changeTemperature = false;
+    this.changeVolume = false;
+    this.onTemperature = false;
+    this.onVolume = false;
+    this.subUnits = ['FOOT', 'INCH', 'METER', 'CENTIMETER'];
+    this.firstInput = 1;
+    this.secondInput = 12; 
   }
 
   onClickVolume() {
@@ -29,10 +44,13 @@ export class UnitTypeComponent implements OnInit {
     this.changeTemperature = false;
     this.onLength = false;
     this.onTemperature = false;
+    this.subUnits = ['LITRE', 'MILLILITER', 'GALLONS'];
+    this.firstInput = 1;
+    this.secondInput = 1000;
   }
 
   onMouseOutVolume() {
-    if (this.onVolume == true) {
+    if (this.onVolume === true) {
       this.changeVolume = true;
     } else {
       this.changeVolume = false;
@@ -49,10 +67,13 @@ export class UnitTypeComponent implements OnInit {
     this.changeVolume = false;
     this.onLength = false;
     this.onVolume = false;
+    this.subUnits = ['CELSIUS', 'FAHRENHEIT'];
+    this.firstInput = 0;
+    this.secondInput = 32;
   }
 
   onMouseOutTemperature() {
-    if (this.onTemperature == true) {
+    if (this.onTemperature === true) {
       this.changeTemperature = true;
     } else {
       this.changeTemperature = false;
@@ -69,10 +90,13 @@ export class UnitTypeComponent implements OnInit {
     this.changeVolume = false;
     this.onTemperature = false;
     this.onVolume = false;
+    this.subUnits = ['FOOT', 'INCH', 'METER', 'CENTIMETER'];
+    this.firstInput = 1;
+    this.secondInput = 12;
   }
 
   onMouseOutLength() {
-    if (this.onLength == true) {
+    if (this.onLength === true) {
       this.changeLength = true;
     } else {
       this.changeLength = false;

@@ -2,7 +2,7 @@
   <div class="sub-division">
     <p class="type-name-text">CHOOSE TYPE</p>
   </div>
-  <div class="units-division" fxLayout="row" fxLayoutAlign="center">
+  <div class="units-division" fxLayout="row" fxLayoutAlign="center center">
     <div class="card-division" fxLayout="row" fxLayoutAlign="space-around none">
       <mat-card
         [(ngClass)]="length"
@@ -71,3 +71,4 @@
     </div>
   </div>
 </div>
+<app-unit-convertor [subUnits]="subUnits" [firstInput]="firstInput" [secondInput]="secondInput"></app-unit-convertor>

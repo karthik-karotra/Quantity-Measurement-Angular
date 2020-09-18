@@ -31,3 +31,8 @@
   height: 45px;
   border: 1px solid #e7dcfe;
 }
+
+ option:checked, option:hover {
+   color: white;
+   background: rgb(46, 150, 247) repeat ;
+ }
