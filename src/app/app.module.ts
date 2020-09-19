@@ -10,6 +10,9 @@ import { AppHeaderComponent } from './components/app-header/app-header.component
 import { UnitTypeComponent } from './components/unit-type/unit-type.component';
 import { UnitConvertorComponent } from './components/unit-convertor/unit-convertor.component';
 import { HomeComponent } from './components/home/home.component';
+import { MatSelectModule } from '@angular/material/select';
+import { HttpService } from './services/http-service/http.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,9 +28,11 @@ import { HomeComponent } from './components/home/home.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatCardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSelectModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

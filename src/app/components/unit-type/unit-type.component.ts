@@ -29,7 +29,7 @@ export class UnitTypeComponent implements OnInit {
     this.changeVolume = false;
     this.onTemperature = false;
     this.onVolume = false;
-    this.subUnits = ['FOOT', 'INCH', 'METER', 'CENTIMETER'];
+    this.subUnits = ['FEET', 'INCH', 'YARD', 'CENTIMETER'];
     this.firstInput = 1;
     this.secondInput = 12; 
   }
@@ -44,7 +44,7 @@ export class UnitTypeComponent implements OnInit {
     this.changeTemperature = false;
     this.onLength = false;
     this.onTemperature = false;
-    this.subUnits = ['LITRE', 'MILLILITER', 'GALLONS'];
+    this.subUnits = ['LITER', 'MILLILITRE', 'GALLON'];
     this.firstInput = 1;
     this.secondInput = 1000;
   }
@@ -90,7 +90,7 @@ export class UnitTypeComponent implements OnInit {
     this.changeVolume = false;
     this.onTemperature = false;
     this.onVolume = false;
-    this.subUnits = ['FOOT', 'INCH', 'METER', 'CENTIMETER'];
+    this.subUnits = ['FEET', 'INCH', 'YARD', 'CENTIMETER'];
     this.firstInput = 1;
     this.secondInput = 12;
   }

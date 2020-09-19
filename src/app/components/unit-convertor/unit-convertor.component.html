@@ -5,15 +5,15 @@
 >
   <div  fxLayout="column" class="from-main">
     <p class="text-data">FROM</p>
-    <input type="text" [value]="firstInput" class="input-text"/>
-        <select matNativeControl required class="select-field">
+    <input type="text" [value]="firstInput" (keyup)="Conversion($event)" class="input-text"/>
+        <select matNativeControl required class="select-field" (click)="firstSubUnit($event)">
           <option *ngFor="let subUnits of subUnits"> {{subUnits}} </option>       
         </select>
   </div>
   <div fxLayout="column" class="to-main">
     <p class="text-data">TO</p>
-    <input type="text" [value]="secondInput" class="input-text"/>
-        <select matNativeControl required class="select-field">
+    <input type="text" [value]="finalResult" class="input-text"/>
+        <select matNativeControl required class="select-field" (click)="secondSubUnit($event)">
           <option *ngFor="let subUnits of subUnits; let arrayIndex = index" [selected]="arrayIndex == 1"> {{subUnits}} </option>
         </select>
   </div>
