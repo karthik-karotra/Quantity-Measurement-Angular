@@ -6,7 +6,7 @@ $volumeColor: #7224ff;
 $volumeBgColor: #e8ddff;
 
 .sub-division {
-  margin-left: 26%;
+ // margin-left: 26%;
   margin-top: 5%;
 }
 
@@ -15,9 +15,9 @@ $volumeBgColor: #e8ddff;
   font-family: Montserrat, Medium;
 }
 
-.card-division {
-  width: 50%;
-}
+// .card-division {
+//   width: 50%;
+// }
 
 #length {
   margin-top: 11%;
@@ -105,5 +105,12 @@ mat-card-content p {
   justify-content: center;
   font-size: 22px;
   margin-top: 8%;
-  font: normal normal bold 15px/19px Montserrat;
+  font: normal normal bold 19px Montserrat;
+}
+
+@media only screen and (min-device-width: 1020px) and (max-device-width: 1300px) {
+  .type-name-text {
+    font-size: 22px;
+    margin-left: 1%;
+  }
 }
