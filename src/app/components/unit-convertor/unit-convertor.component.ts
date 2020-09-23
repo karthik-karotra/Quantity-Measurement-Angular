@@ -29,7 +29,6 @@ export class UnitConvertorComponent implements OnInit {
       valueOfInitialUnit: this.valueOfInitialUnit,
       baseUnit: this.baseUnit,
       targetUnit: this.targetUnit,
-      //units: this.primaryUnit,
     };
     console.log('Dat:  ', data);
     this.httpPost.conversionUrl(data).subscribe(
@@ -57,5 +56,4 @@ export class UnitConvertorComponent implements OnInit {
   secondSubUnit(unitTwo) {
     this.targetUnit = unitTwo.target.value;
   }
-
 }

@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './unit-type.component.html',
   styleUrls: ['./unit-type.component.scss']
 })
+
 export class UnitTypeComponent implements OnInit {
   changeLength: boolean = false;
   changeTemperature: boolean = false;
@@ -105,5 +106,4 @@ export class UnitTypeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
