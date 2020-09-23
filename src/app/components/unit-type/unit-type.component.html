@@ -1,75 +1,83 @@
-<div class="main" fxLayout="row" fxLayoutAlign="center center">
- <div fxLayout="column">
-  <div class="sub-division">
-    <p class="type-name-text">CHOOSE TYPE</p>
-  </div>
+<div 
+  class="main" 
+  fxLayout="row" 
+  fxLayoutAlign="center center"
+>
+  <div fxLayout="column">
+    <div class="sub-division">
+      <p class="type-name-text">CHOOSE TYPE</p>
+    </div>
     <div 
-    class="card-division" 
-    fxLayout="row" 
-    fxLayoutAlign="center center"
-    fxLayout.xs="column"
+      class="card-division" 
+      fxLayout="row" 
+      fxLayoutAlign="center center" 
+      fxLayout.xs="column" 
       fxLayoutGap="20px"
       fxLayoutGap.xs="10px"
-      >
-      <mat-card
-        [(ngClass)]="length"
-        (mouseover)="changeLength = true"
+    >
+      <mat-card 
+        [(ngClass)]="length" 
+        (mouseover)="changeLength = true" 
         (mouseout)="onMouseOutLength()"
-        (click)="onClickLength()"
-        ><img
-          *ngIf="changeLength"
+        (click)="onClickLength('LENGTH')"
+      >
+        <img 
+          *ngIf="changeLength" 
           id="length"
-          src="../../../assets/images/length-color.png"
-          alt="Unit-Type-length"
+          src="../../../assets/images/length-color.png" 
+          alt="Unit-Type-length" 
         />
-        <img
-          *ngIf="!changeLength"
-          id="length"
+        <img 
+          *ngIf="!changeLength" 
+          id="length" 
           src="../../../assets/images/length-no-color.png"
-          alt="Unit-Type-length"
+          alt="Unit-Type-length" 
         />
         <mat-card-content>
           <p>Length</p>
         </mat-card-content>
       </mat-card>
 
-      <mat-card
-        [(ngClass)]="temperature"
-        (mouseover)="changeTemperature = true"
+      <mat-card 
+        [(ngClass)]="temperature" 
+        (mouseover)="changeTemperature = true" 
         (mouseout)="onMouseOutTemperature()"
-        (click)="onClickTemperature()"
-        ><img
-          *ngIf="changeTemperature"
+        (click)="onClickTemperature('TEMPERATURE')"
+      >
+        <img 
+          *ngIf="changeTemperature" 
           id="temperature"
-          src="../../../assets/images/temperature.png"
-          alt="Unit-Type-Temperature"
+          src="../../../assets/images/temperature.png" 
+          alt="Unit-Type-Temperature" 
         />
-        <img
-          *ngIf="!changeTemperature"
-          id="temperature"
+        <img 
+          *ngIf="!changeTemperature" 
+          id="temperature" 
           src="../../../assets/images/temperature-no-color.png"
-          alt="Unit-Type-Temperature"
+          alt="Unit-Type-Temperature" 
         />
         <mat-card-content>
           <p>Temperature</p>
         </mat-card-content>
       </mat-card>
-      <mat-card
-        [(ngClass)]="volume"
-        (mouseover)="changeVolume = true"
+
+      <mat-card 
+        [(ngClass)]="volume" 
+        (mouseover)="changeVolume = true" 
         (mouseout)="onMouseOutVolume()"
-        (click)="onClickVolume()"
-        ><img
-          *ngIf="changeVolume"
+        (click)="onClickVolume('VOLUME')"
+      >
+        <img 
+          *ngIf="changeVolume" 
           id="volume"
-          src="../../../assets/images/volume-color.png"
-          alt="Unit-Type-Volume"
+          src="../../../assets/images/volume-color.png" 
+          alt="Unit-Type-Volume" 
         />
-        <img
-          *ngIf="!changeVolume"
-          id="volume"
+        <img 
+          *ngIf="!changeVolume" 
+          id="volume" 
           src="../../../assets/images/volume-no-color.png"
-          alt="Unit-Type-Volume"
+          alt="Unit-Type-Volume" 
         />
         <mat-card-content>
           <p>Volume</p>
@@ -78,4 +86,7 @@
     </div>
   </div>
 </div>
-<app-unit-convertor [subUnits]="subUnits" [firstInput]="firstInput" [secondInput]="secondInput"></app-unit-convertor>
+<app-unit-convertor 
+  [subUnits]="subUnits" 
+  [primaryUnit]="primaryUnit">
+</app-unit-convertor>

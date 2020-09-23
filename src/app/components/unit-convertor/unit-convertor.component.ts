@@ -11,31 +11,47 @@ export class UnitConvertorComponent implements OnInit {
   constructor(private httpPost: QuantityMeasurementService) { }
 
   @Input() subUnits: any[];
-  @Input() firstInput: number;
-  @Input() secondInput: number;
+  @Input() primaryUnit: string;
 
+  flagOne: boolean = false;
+  flagTwo: boolean = false;
   units: string;
   baseUnit: string;
   targetUnit: string;
-  valueOfInitialUnit: number;
+  valueOfInitialUnit: number = 1;
   outputValue;
-  finalResult = 0;
+  finalResult : number = 12;
+  boxValue: string = 'boxOne';
+  data;
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  settingUpData(unitOne, unitTwo, initialValue) {
+    this.baseUnit = unitOne;
+    this.targetUnit = unitTwo;
+    this.valueOfInitialUnit = initialValue;
+    this.data = {
+      baseUnit:
+        this.boxValue === 'boxOne' ? this.baseUnit : this.targetUnit,
+      valueOfInitialUnit: 
+        this.valueOfInitialUnit,
+      targetUnit:
+        this.boxValue === 'boxOne' ? this.targetUnit : this.baseUnit,
+    };
   }
 
-  ConvertedValue() {
-    var data = {
-      valueOfInitialUnit: this.valueOfInitialUnit,
-      baseUnit: this.baseUnit,
-      targetUnit: this.targetUnit,
-    };
-    console.log('Dat:  ', data);
-    this.httpPost.conversionUrl(data).subscribe(
+  settingUpFlag(valueOne, valueTwo) {
+    this.flagOne = false;
+    this.flagTwo = false;
+    this.valueOfInitialUnit = valueOne;
+    this.finalResult = valueTwo;
+  }
+
+  convertedValue() {
+    this.httpPost.conversionUrl(this.data).subscribe(
       (resp: Response) => {
-        console.log('Response Data : ', resp);
         this.outputValue = resp;
-        console.log('Data : ',this.outputValue.value)
+        console.log('Output : ', this.outputValue.value)
         this.finalResult = this.outputValue.value;
       },
       (error) => {
@@ -44,16 +60,31 @@ export class UnitConvertorComponent implements OnInit {
     );
   }
 
-  Conversion(data) {
-    this.valueOfInitialUnit = data.target.value;
-    this.ConvertedValue();
+  conversion(data, boxName) {
+    this.boxValue = boxName;
+    this.valueOfInitialUnit = data;
+    if (!this.flagOne && !this.flagTwo) {
+      this.settingUpData(this.subUnits[0], this.subUnits[1], data);
+    }
+    if (this.flagOne && !this.flagTwo) {
+      this.settingUpData(this.baseUnit, this.subUnits[1], data);
+    }
+    if (!this.flagOne && this.flagTwo) {
+      this.settingUpData(this.subUnits[0], this.targetUnit, data);
+    }
+    if (this.flagOne && this.flagTwo) {
+      this.settingUpData(this.baseUnit, this.targetUnit, data);
+    }
+    this.convertedValue();
   }
 
   firstSubUnit(unitOne) {
+    this.flagOne = true;
     this.baseUnit = unitOne.target.value;
   }
 
   secondSubUnit(unitTwo) {
+    this.flagTwo = true;
     this.targetUnit = unitTwo.target.value;
   }
 }

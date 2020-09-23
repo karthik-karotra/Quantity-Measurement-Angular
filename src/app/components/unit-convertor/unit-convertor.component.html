@@ -1,21 +1,48 @@
-<div
-  class="conversion-main"
-  fxLayout="row"
-  fxLayoutAlign="center center"
+<div 
+  class="conversion-main" 
+  fxLayout="row" 
+  fxLayoutAlign="center center" 
   fxLayout.xs='column'
 >
-  <div  fxLayout="column" class="from-main">
+  <div fxLayout="column" class="from-main">
     <p class="text-data">FROM</p>
-    <input type="text" [value]="firstInput" (keyup)="Conversion($event)" class="input-text"/>
-        <select matNativeControl required class="select-field" (click)="firstSubUnit($event)">
-          <option *ngFor="let subUnits of subUnits"> {{subUnits}} </option>       
-        </select>
+    <input 
+      type="text" 
+      [value]="boxValue === 'boxOne' ? valueOfInitialUnit : finalResult" 
+      (keyup)="conversion($event.target.value, 'boxOne')"
+      class="input-text" 
+    />
+    <select 
+      matNativeControl 
+      required 
+      class="select-field" 
+      (click)="firstSubUnit($event)"
+    >
+      <option *ngFor="let subUnits of subUnits"> 
+        {{subUnits}} 
+      </option>
+    </select>
   </div>
   <div fxLayout="column" class="to-main">
     <p class="text-data">TO</p>
-    <input type="text" [value]="finalResult" class="input-text"/>
-        <select matNativeControl required class="select-field" (click)="secondSubUnit($event)">
-          <option *ngFor="let subUnits of subUnits; let arrayIndex = index" [selected]="arrayIndex == 1"> {{subUnits}} </option>
-        </select>
+    <input 
+      type="text" 
+      [value]="boxValue === 'boxOne' ? finalResult : valueOfInitialUnit" 
+      (keyup)="conversion($event.target.value, 'boxTwo')"
+      class="input-text" 
+    />
+    <select 
+      matNativeControl 
+      required 
+      class="select-field" 
+      (click)="secondSubUnit($event)"
+    >
+      <option 
+        *ngFor="let subUnits of subUnits; let arrayIndex = index" 
+        [selected]="arrayIndex == 1"
+      > 
+        {{subUnits}}
+      </option>
+    </select>
   </div>
 </div>

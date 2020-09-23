@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { UnitConvertorComponent } from "./../unit-convertor/unit-convertor.component";
 
 @Component({
   selector: 'app-unit-type',
@@ -7,20 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class UnitTypeComponent implements OnInit {
-  changeLength: boolean = false;
+  changeLength: boolean = true;
   changeTemperature: boolean = false;
   changeVolume: boolean = false;
   length: string = 'card card-length';
-  onLength: boolean = false;
+  onLength: boolean = true;
   temperature: string = 'card card-temperature';
   onTemperature: boolean = false;
   volume: string = 'card card-volume';
   onVolume: boolean = false;
-  subUnits = [];
-  firstInput: number = 0;
-  secondInput: number = 0;
+  subUnits = ['FEET', 'INCH', 'YARD', 'CENTIMETER'];
+  primaryUnit: string = 'LENGTH';
 
-  constructor() {
+  @ViewChild(UnitConvertorComponent) conversionComponent: UnitConvertorComponent;
+
+  constructor() { }
+
+  onClickLength(value) {
+    this.primaryUnit = value;
     this.changeLength = true;
     this.temperature = 'card card-temperature';
     this.volume = 'card card-volume';
@@ -31,34 +36,15 @@ export class UnitTypeComponent implements OnInit {
     this.onTemperature = false;
     this.onVolume = false;
     this.subUnits = ['FEET', 'INCH', 'YARD', 'CENTIMETER'];
-    this.firstInput = 1;
-    this.secondInput = 12; 
+    this.conversionComponent.settingUpFlag(1,12);
   }
 
-  onClickVolume() {
-    this.changeVolume = true;
-    this.temperature = 'card card-temperature';
-    this.length = 'card card-length';
-    this.volume = 'card-hold-volume';
-    this.onVolume = true;
-    this.changeLength = false;
-    this.changeTemperature = false;
-    this.onLength = false;
-    this.onTemperature = false;
-    this.subUnits = ['LITER', 'MILLILITRE', 'GALLON'];
-    this.firstInput = 1;
-    this.secondInput = 1000;
+  onMouseOutLength() {
+    this.onLength ? this.changeLength = true : this.changeLength = false;
   }
 
-  onMouseOutVolume() {
-    if (this.onVolume === true) {
-      this.changeVolume = true;
-    } else {
-      this.changeVolume = false;
-    }
-  }
-
-  onClickTemperature() {
+  onClickTemperature(value) {
+    this.primaryUnit = value;
     this.changeTemperature = true;
     this.length = 'card card-length';
     this.volume = 'card card-volume';
@@ -69,39 +55,30 @@ export class UnitTypeComponent implements OnInit {
     this.onLength = false;
     this.onVolume = false;
     this.subUnits = ['CELSIUS', 'FAHRENHEIT'];
-    this.firstInput = 0;
-    this.secondInput = 32;
+    this.conversionComponent.settingUpFlag(0,32);
   }
 
   onMouseOutTemperature() {
-    if (this.onTemperature === true) {
-      this.changeTemperature = true;
-    } else {
-      this.changeTemperature = false;
-    }
+    this.onTemperature ? this.changeTemperature = true : this.changeTemperature = false;
   }
 
-  onClickLength() {
-    this.changeLength = true;
+  onClickVolume(value) {
+    this.primaryUnit = value;
+    this.changeVolume = true;
     this.temperature = 'card card-temperature';
-    this.volume = 'card card-volume';
-    this.length = 'card-hold-length';
-    this.onLength = true;
+    this.length = 'card card-length';
+    this.volume = 'card-hold-volume';
+    this.onVolume = true;
+    this.changeLength = false;
     this.changeTemperature = false;
-    this.changeVolume = false;
+    this.onLength = false;
     this.onTemperature = false;
-    this.onVolume = false;
-    this.subUnits = ['FEET', 'INCH', 'YARD', 'CENTIMETER'];
-    this.firstInput = 1;
-    this.secondInput = 12;
+    this.subUnits = ['LITER', 'MILLILITRE', 'GALLON'];
+    this.conversionComponent.settingUpFlag(1,1000);
   }
 
-  onMouseOutLength() {
-    if (this.onLength === true) {
-      this.changeLength = true;
-    } else {
-      this.changeLength = false;
-    }
+  onMouseOutVolume() {
+    this.onVolume ? this.changeVolume = true : this.changeVolume = false;
   }
 
   ngOnInit(): void {

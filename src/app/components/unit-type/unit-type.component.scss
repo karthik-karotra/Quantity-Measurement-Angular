@@ -49,18 +49,21 @@ $volumeBgColor: #e8ddff;
 
 .card-length:hover {
   background-color: $lengthBgColor;
+  color: $lengthColor;
   cursor: pointer;
   border: 1px solid $lengthColor;
 }
 
 .card-temperature:hover {
   background-color: $temperatureBgColor;
+  color: $temperatureColor;
   cursor: pointer;
   border: 1px solid $temperatureColor;
 }
 
 .card-volume:hover {
   background-color: $volumeBgColor;
+  color: $volumeColor;
   cursor: pointer;
   border: 1px solid $volumeColor;
 }
